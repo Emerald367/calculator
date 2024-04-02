@@ -3,7 +3,7 @@ function calculate(a, b, operation) {
           case 'add':
             return a + b;
             break;
-            
+
           case 'subtract':
             return a - b;
             break;
@@ -17,3 +17,5 @@ function calculate(a, b, operation) {
             break;
       }
 }
+
+module.exports = calculate;
