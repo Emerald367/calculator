@@ -30,3 +30,7 @@ test('decimal precision', () => {
     expect(calculate(0.5, 0.3, 'multiply')).toBe(0.15);
     expect(calculate(0.15, 0.3, 'division')).toBe(0.5);
 })
+
+test('numeric value', () => {
+    expect(calculate(NaN, 0.5, 'add')).toBe('Error: Inputs must be numbers')
+})
