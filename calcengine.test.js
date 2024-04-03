@@ -17,5 +17,9 @@ test('division operation', () => {
 });
 
 test('invalid operation', () => {
-    expect(calculate(2, 2, 'invalid')).toBe("Invalid Operation");
+    expect(calculate(2, 2, 'invalid')).toBe('Invalid Operation');
+});
+
+test('division by zero', () => {
+    expect(calculate(2, 0, 'division')).toBe('Error: Division by zero');
 });

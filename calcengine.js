@@ -15,8 +15,13 @@ function calculate(a, b, operation) {
             break;
 
           case 'division':
-            return math.evaluate(a + ' / ' + b);
-            break;
+            if (b === 0) {
+              return 'Error: Division by zero'
+            } else {
+              return math.evaluate(a + ' / ' + b);
+            }
+            break; 
+
           default:
             return "Invalid Operation";
       }
