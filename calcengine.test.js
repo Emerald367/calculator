@@ -15,3 +15,7 @@ test('multiply operation', () => {
 test('division operation', () => {
     expect(calculate(10, 5, 'division')).toBe(2);
 });
+
+test('invalid operation', () => {
+    expect(calculate(2, 2, 'invalid')).toBe("Invalid Operation");
+});

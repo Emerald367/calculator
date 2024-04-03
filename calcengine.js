@@ -17,6 +17,8 @@ function calculate(a, b, operation) {
           case 'division':
             return math.evaluate(a + ' / ' + b);
             break;
+          default:
+            return "Invalid Operation";
       }
 }
 
