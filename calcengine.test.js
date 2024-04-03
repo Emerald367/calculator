@@ -16,10 +16,6 @@ test('division operation', () => {
     expect(calculate(10, 5, 'division')).toBe(2);
 });
 
-test('invalid operation', () => {
-    expect(calculate(2, 2, 'invalid')).toBe('Invalid Operation');
-});
-
 test('division by zero', () => {
     expect(calculate(2, 0, 'division')).toBe('Error: Division by zero');
 });
@@ -34,3 +30,8 @@ test('decimal precision', () => {
 test('numeric value', () => {
     expect(calculate(NaN, 0.5, 'add')).toBe('Error: Inputs must be numbers')
 })
+
+test('valid operation', () => {
+    expect(calculate(5, 6, 'sqrt')).toBe('Error: Not a valid operation')
+})
+

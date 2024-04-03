@@ -6,6 +6,10 @@ function calculate(a, b, operation) {
         return 'Error: Inputs must be numbers'
       }
 
+      if (!['add', 'subtract', 'multiply', 'division'].includes(operation)) {
+        return 'Error: Not a valid operation'
+      }
+
       switch(operation) {
           case 'add':
             return math.evaluate(a + ' + ' + b);
@@ -26,9 +30,6 @@ function calculate(a, b, operation) {
               return math.evaluate(a + ' / ' + b);
             }
             break; 
-
-          default:
-            return "Invalid Operation";
       }
 }
 
