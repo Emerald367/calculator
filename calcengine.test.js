@@ -23,3 +23,10 @@ test('invalid operation', () => {
 test('division by zero', () => {
     expect(calculate(2, 0, 'division')).toBe('Error: Division by zero');
 });
+
+test('decimal precision', () => {
+    expect(calculate(0.3, 0.5, 'add')).toBe(0.8);
+    expect(calculate(0.5, 0.3, 'subtract')).toBe(0.2);
+    expect(calculate(0.5, 0.3, 'multiply')).toBe(0.15);
+    expect(calculate(0.15, 0.3, 'division')).toBe(0.5);
+})

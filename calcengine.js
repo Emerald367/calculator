@@ -1,4 +1,5 @@
 const math = require('mathjs');
+const decimal = require('decimal.js');
 
 function calculate(a, b, operation) {
       switch(operation) {
