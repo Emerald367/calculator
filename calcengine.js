@@ -36,7 +36,10 @@ function calculate(a, b, operation) {
 
 module.exports = calculate;
 
-function parseTree(a, b, operation) {
-
+function Node(operation, left, right) {
+    this.operation = operation;
+    this.left = left;
+    this.right = right;
 }
 
+module.exports = Node;
