@@ -1,5 +1,6 @@
 const math = require('mathjs');
 const decimal = require('decimal.js');
+const shunting = require('shunting-yard.js');
 
 function calculate(a, b, operation) {
       if (isNaN(a) || isNaN(b)) {
@@ -34,4 +35,8 @@ function calculate(a, b, operation) {
 }
 
 module.exports = calculate;
+
+function parseTree(a, b, operation) {
+
+}
 
