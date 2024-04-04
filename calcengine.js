@@ -1,6 +1,6 @@
 const math = require('mathjs');
 const decimal = require('decimal.js');
-const shunting = require('shunting-yard.js');
+module.exports = { calculate, parenthesesChecker };
 
 function calculate(a, b, operation) {
       if (isNaN(a) || isNaN(b)) {
@@ -34,12 +34,32 @@ function calculate(a, b, operation) {
       }
 }
 
-module.exports = calculate;
+function parenthesesChecker(str) {
+   const stack = [];
+   const pairs = {
+       "(": ")",
+   };
+
+   for (let char of str) {
+     if (pairs[char]) {
+        stack.push(char);
+     } else if (
+        char === ")"
+     ) {
+        let lastOpenParenthesis = stack.pop()
+         if (
+            pairs[lastOpenParenthesis] !== char
+         ) {
+            return false;
+         }
+     }
+   }
+   return stack.length === 0;
+}
+
 
 function Node(operation, left, right) {
     this.operation = operation;
     this.left = left;
     this.right = right;
 }
-
-module.exports = Node;
