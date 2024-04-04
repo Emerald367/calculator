@@ -34,28 +34,7 @@ function calculate(a, b, operation) {
       }
 }
 
-function parenthesesChecker(str) {
-   const stack = [];
-   const pairs = {
-       "(": ")",
-   };
 
-   for (let char of str) {
-     if (pairs[char]) {
-        stack.push(char);
-     } else if (
-        char === ")"
-     ) {
-        let lastOpenParenthesis = stack.pop()
-         if (
-            pairs[lastOpenParenthesis] !== char
-         ) {
-            return false;
-         }
-     }
-   }
-   return stack.length === 0;
-}
 
 
 function Node(operation, left, right) {

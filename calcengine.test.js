@@ -1,4 +1,4 @@
-const { calculate, parenthesesChecker } = require('./calcengine');
+const { calculate } = require('./calcengine');
 
 
 test('add operation', () => {
@@ -36,14 +36,4 @@ test('valid operation', () => {
     expect(calculate(5, 6, 'sqrt')).toBe('Error: Not a valid operation')
 })
 
-test('balanced parentheses', () => {
-    expect(parenthesesChecker('()')).toBe(true)
-})
 
-test('unbalanced parentheses', () => {
-    expect(parenthesesChecker('(')).toBe(false)
-})
-
-test('no parentheses', () => {
-    expect(parenthesesChecker('')).toBe(true)
-})
