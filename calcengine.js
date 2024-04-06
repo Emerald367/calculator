@@ -1,6 +1,6 @@
 const math = require('mathjs');
 const decimal = require('decimal.js');
-module.exports = { calculate, parenthesesChecker };
+module.exports = calculate;
 
 function calculate(a, b, operation) {
       if (isNaN(a) || isNaN(b)) {
@@ -32,13 +32,4 @@ function calculate(a, b, operation) {
             }
             break; 
       }
-}
-
-
-
-
-function Node(operation, left, right) {
-    this.operation = operation;
-    this.left = left;
-    this.right = right;
 }

@@ -1,4 +1,4 @@
-const { calculate } = require('./calcengine');
+const calculate = require('./calcengine');
 
 
 test('add operation', () => {
