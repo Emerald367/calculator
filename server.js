@@ -4,13 +4,20 @@ const app = express()
 const db = require('./db');
 const calcengine = require('./calcengine')
 module.exports = app;
+
 const port = 4000
 
-
-
 app.get('/add', (req, res) => {
-    const sum = calcengine.add(req.query.num1, req.query.num2);
-    res.send(sum.toString());
+    try {
+        const num1 = Number(req.query.num1);
+        const num2 = Number(req.query.num2);
+        const sum = calcengine.calculate(num1, num2, 'add');
+        res.send(sum.toString());
+    } catch (error) {
+        console.error(error);
+
+     res.status(500).send('An error occurred');
+    }
 })
 
 app.get('/subtract', (req, res) => {
@@ -34,5 +41,5 @@ app.post('/create-calculation-data', (req, res) => {
 
 app.listen(port, () => console.log(`Server has started on port: ${port}`))
 
-
+module.exports = app;
 

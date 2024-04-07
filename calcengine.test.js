@@ -1,6 +1,5 @@
 const calculate = require('./calcengine');
 
-
 test('add operation', () => {
     expect(calculate(2, 2, 'add')).toBe(4);
 });

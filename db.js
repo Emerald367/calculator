@@ -7,10 +7,18 @@ const pool = new Pool({
     port: 5432
 });
 
-pool.query('SELECT NOW()', (err, res) => {
-    if(err) {
-        console.log('Error connecting to the database', err);
-    } else {
-        console.log('Connection successful, Server time:', res.rows[0].now);
-    }
-});
+function connectToDb() {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT NOW()', (err, res) => {
+            if(err) {
+                console.log('Error connecting to the database', err);
+                reject(err);
+            } else {
+                console.log('Connection successful, Server time:', res.rows[0].now);
+                resolve();
+            }
+        });
+    });
+}
+
+module.exports = { connectToDb };
