@@ -12,6 +12,32 @@ expect(response.status).toBe(200);
 expect(response.text).toBe('8');
 });
 
+it('subtracts numbers correctly', async () => {
+    const response = await request.get('/subtract').query({num1: 4, num2: 3});
+
+expect(response.status).toBe(200);
+
+expect(response.text).toBe('1');
+
+});
+
+it('multiplies numbers correctly', async () => {
+    const response = await request.get('/multiply').query({num1: 2, num2: 8 });
+
+expect(response.status).toBe(200);
+
+expect(response.text).toBe('16');
+
+});
+
+it('divides numbers correctly', async () => {
+    const response = await request.get('/division').query({num1: 20, num2: 4});
+
+expect(response.status).toBe(200);
+
+expect(response.text).toBe('5');
+});
+
 beforeAll(async () => {
     await connectToDb();
 });
