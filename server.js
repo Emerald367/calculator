@@ -2,7 +2,7 @@ const env = require('dotenv').config();
 const express = require('express')
 const app = express()
 const db = require('./db');
-const calcengine = require('./calcengine')
+const calculate = require('./calcengine')
 module.exports = app;
 
 const port = 4000
@@ -11,7 +11,7 @@ app.get('/add', (req, res) => {
     try {
         const num1 = Number(req.query.num1);
         const num2 = Number(req.query.num2);
-        const sum = calcengine.calculate(num1, num2, 'add');
+        const sum = calculate(num1, num2, 'add');
         res.send(sum.toString());
     } catch (error) {
         console.error(error);
