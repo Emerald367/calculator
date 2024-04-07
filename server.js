@@ -21,18 +21,45 @@ app.get('/add', (req, res) => {
 })
 
 app.get('/subtract', (req, res) => {
-   const difference = calcengine.subtract(req.query.num1, req.query.num2);
-   res.send(difference.toString());
+   try {
+    const num1 = Number(req.query.num1);
+    const num2 = Number(req.query.num2);
+    const difference = calculate(num1, num2, 'subtract');
+    res.send(difference.toString());
+   } catch (error) {
+       console.error(error);
+
+    res.status(500).send('An error occurred');
+   }
+   
 })
 
 app.get('/multiply', (req, res) => {
-    const product = calcengine.multiply(req.query.num1, req.query.num2);
-    res.send(product.toString());
+    try {
+        const num1 = Number(req.query.num1)
+        const num2 = Number(req.query.num2)
+        const product = calculate(num1, num2, 'multiply');
+        res.send(product.toString());
+    } catch (error) {
+       console.error(error);
+
+     res.status(500).send('An error occurred');
+    }
+   
 })
 
 app.get('/division', (req, res) => {
-    const quotient = calcengine.divide(req.query.num1, req.query.num2);
-    res.send(product.toString());
+
+    try {
+        const num1 = (req.query.num1);
+        const num2 = (req.query.num2);
+        const quotient = calculate(num1, num2, 'division');
+        res.send(quotient.toString());
+    } catch (error) {
+       console.error(error);
+
+       res.status(500).send('An error occurred')
+    }
 })
 
 app.post('/create-calculation-data', (req, res) => {

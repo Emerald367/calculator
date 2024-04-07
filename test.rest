@@ -1,2 +1,11 @@
+###
+GET http://localhost:4000/add?num1=2&num2=3
 
+###
+GET http://localhost:4000/subtract?num1=4&num2=3
 
+###
+GET http://localhost:4000/multiply?num1=2&num2=8
+
+###
+GET http://localhost:4000/division?num1=20&num2=4
