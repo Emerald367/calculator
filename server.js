@@ -1,12 +1,10 @@
 const env = require('dotenv').config();
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 app.use(express.json());
 const db = require('./db');
 const calculate = require('./calcengine');
-const pool = require('./db.js');
-
-
+const {pool} = require('./db.js');
 const port = 4000
 
 app.get('/add', (req, res) => {
@@ -20,7 +18,7 @@ app.get('/add', (req, res) => {
 
      res.status(500).send('An error occurred');
     }
-})
+});
 
 app.get('/subtract', (req, res) => {
    try {
@@ -34,12 +32,12 @@ app.get('/subtract', (req, res) => {
     res.status(500).send('An error occurred');
    }
    
-})
+});
 
 app.get('/multiply', (req, res) => {
     try {
-        const num1 = Number(req.query.num1)
-        const num2 = Number(req.query.num2)
+        const num1 = Number(req.query.num1);
+        const num2 = Number(req.query.num2);
         const product = calculate(num1, num2, 'multiply');
         res.send(product.toString());
     } catch (error) {
@@ -48,7 +46,7 @@ app.get('/multiply', (req, res) => {
      res.status(500).send('An error occurred');
     }
    
-})
+});
 
 app.get('/division', (req, res) => {
 
@@ -62,14 +60,16 @@ app.get('/division', (req, res) => {
 
        res.status(500).send('An error occurred')
     }
-})
+});
 
 app.post('/create-calculation-data', async (req, res) => {
    let timestamp = new Date();
+   
    const num1 = (req.body.num1);
    const num2 = (req.body.num2);
-   const operation = (req.body.operation)
-   const result = calculate(num1, num2, operation)
+   const operation = (req.body.operation);
+
+   const result = calculate(num1, num2, operation);
    const calculation = `${num1} ${operation} ${num2}`;
 
    const query = 'INSERT INTO Calculations (Calculation, Result, Timestamp) VALUES ($1, $2, $3)';
@@ -85,7 +85,7 @@ app.post('/create-calculation-data', async (req, res) => {
 
 });
 
-app.listen(port, () => console.log(`Server has started on port: ${port}`))
+app.listen(port, () => console.log(`Server has started on port: ${port}`));
 
 module.exports = app;
 

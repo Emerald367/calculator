@@ -21,5 +21,4 @@ function connectToDb() {
     });
 }
 
-module.exports = { connectToDb };
-module.exports = pool;
+module.exports = { connectToDb, pool };

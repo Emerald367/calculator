@@ -15,7 +15,7 @@ POST http://localhost:4000/create-calculation-data
 Content-Type: application/json 
 
 {
-    "num1": 4,
-    "num2": 7,
-    "operation": "multiply"
+    "num1": 12,
+    "num2": 3,
+    "operation": "add"
 }
