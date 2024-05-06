@@ -125,6 +125,39 @@
                     }
                 }
             }
+        },
+        "/create-calculation-data": {
+            "post": {
+                "summary": "Calculates and sends all the details involved to a Database",
+                "parameters": [
+                    {
+                        "name": "num1",
+                        "in": "body",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "num2",
+                        "in": "body",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "operation",
+                        "in": "body",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Calculation stored successfully"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
         }
     }
 }
