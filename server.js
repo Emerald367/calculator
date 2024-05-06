@@ -4,12 +4,16 @@ const app = express();
 app.use(express.json());
 const db = require('./db');
 const calculate = require('./calcengine');
-const {pool} = require('./db.js');
+const {pool, connectToDb} = require('./db.js');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json')
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 const port = 4000
+
+connectToDb()
+    .then(serverTime => console.log(`Connected to DB at ${serverTime}`))
+    .catch(err => console.error('Failed to connect to DB', err));
 
 app.get('/add', (req, res) => {
     try {

@@ -4,7 +4,7 @@ const pool = new Pool({
     host: 'localhost',
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
-    port: 5432
+    port: 5432,
 });
 
 function connectToDb() {
@@ -15,7 +15,7 @@ function connectToDb() {
                 reject(err);
             } else {
                 console.log('Connection successful, Server time:', res.rows[0].now);
-                resolve();
+                resolve(res.rows[0].now);
             }
         });
     });
