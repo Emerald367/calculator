@@ -131,23 +131,29 @@
                 "summary": "Calculates and sends all the details involved to a Database",
                 "parameters": [
                     {
-                        "name": "num1",
+                        "name": "body",
                         "in": "body",
                         "required": true,
-                        "type": "number"
-                    },
-                    {
-                        "name": "num2",
-                        "in": "body",
-                        "required": true,
-                        "type": "number"
-                    },
-                    {
-                        "name": "operation",
-                        "in": "body",
-                        "required": true,
-                        "type": "number"
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                               "num1": {
+                                  "type": "number",
+                                  "description": "first number"
+                               },
+                               "num2": {
+                                  "type": "number",
+                                  "description": "second number"
+                               },
+                               "operation": {
+                                  "type": "string",
+                                  "description": "operator involved"
+                               }
+                            }
+                        }
                     }
+                    
+                    
                 ],
                 "responses": {
                     "200": {
