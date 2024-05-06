@@ -5,6 +5,10 @@ app.use(express.json());
 const db = require('./db');
 const calculate = require('./calcengine');
 const {pool} = require('./db.js');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json')
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
 const port = 4000
 
 app.get('/add', (req, res) => {
