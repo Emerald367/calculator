@@ -35,6 +35,36 @@
                     }
                 }
             }
+        },
+        "/subtract": {
+            "get": {
+                "summary": "Takes two number inputs and subtracts them",
+                "parameters": [
+                    {
+                        "name": "num1",
+                        "in": "query",
+                        "required": true,
+                        "type": "number"
+                    },
+                    {
+                        "name": "num2",
+                        "in": "query",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "An error occurred"
+                    }
+                }
+            }
         }
     }
 }
