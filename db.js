@@ -3,8 +3,8 @@ const env = require('dotenv').config()
 const pool = new Pool({
     connectionString: process.env.CONNECTION_STRING,
     ssl: {
-        rejectUnauthorized: false
-     }
+    rejectUnauthorized: false
+ }
 });
 
 function connectToDb() {
