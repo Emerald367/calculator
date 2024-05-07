@@ -80,7 +80,7 @@ app.post('/create-calculation-data', async (req, res) => {
    const result = calculate(num1, num2, operation);
    const calculation = `${num1} ${operation} ${num2}`;
 
-   const query = 'INSERT INTO Calculations (Calculation, Result, Timestamp) VALUES ($1, $2, $3)';
+   const query = 'INSERT INTO calculations (Calculation, Result, Timestamp) VALUES ($1, $2, $3)';
    const values = [calculation, result, timestamp];
 
     try {
